@@ -1,0 +1,23 @@
+- conclusion = locals.copy.mobile.sections.conclusion
+
+.pane
+  +backdrop(conclusion.backdrop)
+
+  .pane--body
+    p!= conclusion.message
+
+    .pane--links
+      for link in conclusion.links
+        a( href= link.href, target='_blank' )
+          = link.name
+
+    .pane--share
+      h3 Share this
+      .pane--share_facebook
+        a: img( src= imagePath('mobile_bf.svg'), alt='F' )
+        .facebook-count
+          //- Rendered client-side
+      .pane--share_twitter
+        a: img( src= imagePath('mobile_twt.svg'), alt='T' )
+        .twitter-count
+          //- Rendered client-side
